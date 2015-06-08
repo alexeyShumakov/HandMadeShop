@@ -7,18 +7,23 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'kaminari'
+
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem 'draper'
+gem 'pundit'
+
 gem 'therubyracer', :platform=>:ruby
 group :development do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-bundler'
