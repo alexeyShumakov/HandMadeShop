@@ -1,13 +1,23 @@
 / navigation styled for Bootstrap 3.0
-nav.navbar.navbar-inverse.navbar-fixed-top
-  .container
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
     .navbar-header
       button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to root_path, class: 'navbar-brand'
+        span.glyphicon.glyphicon-home
     .collapse.navbar-collapse
-      ul.nav.navbar-nav
+
+      = link_to  root_path, { class: 'btn btn-default navbar-btn navbar-right pull-right', role: 'button' }
+        span.glyphicon.glyphicon-shopping-cart
+        .badge 3
+      form.navbar-form.navbar-right
+        .form-group
+          input.form-control type='text' placeholder='Search'
+
+      ul.nav.navbar-nav.pull-right
         == render 'layouts/navigation_links'
+
