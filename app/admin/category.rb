@@ -1,5 +1,4 @@
 ActiveAdmin.register Category do
-	permit_params :body, :title
 	index do
 		selectable_column
 		id_column
@@ -17,7 +16,7 @@ ActiveAdmin.register Category do
 			f.input :body
 			f.input :image, :as => :file
 		end
-		actions
+		f.actions
 	end
 
 	permit_params :title, :body, :image
