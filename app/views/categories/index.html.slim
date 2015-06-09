@@ -2,16 +2,10 @@
 
 h1 Listing categories
 
-table
-  thead
-    tr
-      th Title
-      th Body
-      th
-
-  tbody
-    - @categories.each do |category|
-      tr
-        td = category.title
-        td = category.body
-        td = link_to 'Show', category
+.row
+  - @categories.each do |category|
+    .col-sm-6.col-md-4
+      .thumbnail.thumb-category
+        =link_to category
+          =image_tag(category.image.url, alt: category.title)
+        h3.text-center = category.title

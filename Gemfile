@@ -13,6 +13,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'kaminari'
+gem "paperclip", "~> 4.2"
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'

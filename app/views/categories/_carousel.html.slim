@@ -1,22 +1,21 @@
-.carousel.slide#carousel data-ride='carousel'
+.carousel.fade#carousel data-ride='carousel'
   ol.carousel-indicators
-    li.active data-target='#carousel' data-slide-to='0'
-    li data-target='#carousel' data-slide-to='1'
-    li data-target='#carousel' data-slide-to='2'
-
+    -@carousel_items.each do |carousel_item|
+      - if @carousel_items.index(carousel_item) == 0
+        li.active data-target="#carousel" data-slide-to=@carousel_items.index(carousel_item)
+      - else
+        li data-target="#carousel" data-slide-to=@carousel_items.index(carousel_item)
   .carousel-inner role='listbox'
-    .item.active
-      img src='/test_image.png'
-      .carousel-caption
-        h1 Hello
-        p hlkjljlj
-    .item
-      img src='/test_image.png'
-      .carousel-caption
-        h1 Hello1
-        p hlkjljlj
-    .item
-      img src='/test_image.png'
-      .carousel-caption
-        h1 Hello1
-        p hlkjljlj
+    -@carousel_items.each do |carousel_item|
+      - if @carousel_items.index(carousel_item) == 0
+        .item.active
+          img src=carousel_item.image.url alt=carousel_item.title
+          .carousel-caption
+            h1 = carousel_item.title
+            p  = carousel_item.description
+      - else
+        .item
+          img src=carousel_item.image.url alt=carousel_item.title
+          .carousel-caption
+            h1 = carousel_item.title
+            p = carousel_item.description
