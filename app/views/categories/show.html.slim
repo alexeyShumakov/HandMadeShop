@@ -1,10 +1,24 @@
-p#notice = notice
-
-p
-  strong Title:
-  = @category.title
-p
-  strong Body:
-  = @category.body
-
-= link_to 'Back', categories_path
+.container
+  ol.breadcrumb
+    li
+      =link_to 'Home', root_path
+    li.active = @category.title
+  .row
+    p#notice = notice
+    h1.text-center = @category.title
+    .col-lg-3.col-md-3.col-sm-3
+      .list-group
+        -@categories.each do |category|
+          -if @category == category
+            = link_to( category, class: ['list-group-item', 'active'])
+              span.glyphicon.glyphicon-chevron-right
+              = category.title
+          -else
+            = link_to(category.title, category, class: 'list-group-item' )
+      = image_tag(@category.image.url, alt: @category.title, class: 'img-circle')
+    .col-lg-9.col-md-9.col-sm-9
+      -@products.each do |product|
+        .col-sm-4.col-md-4
+          == render 'categories/thumb_products', product: product
+      .col-lg-12.col-md-12.col-sm-12.text-center
+        = paginate @products

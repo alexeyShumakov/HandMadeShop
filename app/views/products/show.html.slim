@@ -39,15 +39,16 @@
         = @product.description
       .well
         .price
-          = @product.price
+          = number_to_currency(@product.price, unit: "", separator: ",", delimiter: " ")
           |
           span.glyphicon.glyphicon-ruble
         .btn.btn-primary.btn-lg.pull-right Add to Cart
         .clearfix
-  .row
-    .col-md-8
-      h3 Дополнительное описание
-      dl.dl-horizontal
-        -@product.additional_descriptions.each do |ad|
-          dt = ad.title
-          dd = ad.description
+  -unless @product.additional_descriptions.blank?
+    .row
+      .col-md-8
+        h3 Дополнительное описание
+        dl.dl-horizontal
+          -@product.additional_descriptions.each do |ad|
+            dt = ad.title
+            dd = ad.description

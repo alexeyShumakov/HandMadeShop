@@ -11,15 +11,6 @@
           h3.text-center = category.title
   h2 Newest products
   .row
-    - @products.each do |product|
+    -@products.each do |product|
       .col-sm-3.col-md-3
-        .thumbnail.thumb-product
-          =link_to product
-            =image_tag(product.product_images[0].image.url(:thumb), alt: product.title)
-          h3.text-center = product.title
-          .text-center
-            h3.price.bold
-              = product.price
-              |
-              span.glyphicon.glyphicon-rub
-            button.btn.btn-primary.btn-lg Add to cart
+        == render 'categories/thumb_products', product: product

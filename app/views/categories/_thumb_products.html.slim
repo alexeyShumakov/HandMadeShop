@@ -1,0 +1,10 @@
+.thumbnail.thumb-product
+  =link_to product
+    =image_tag(product.product_images[0].image.url(:thumb), alt: product.title)
+  h3.text-center = product.title
+  .text-center
+    h3.price.bold
+      = number_to_currency(product.price, unit: "", separator: ",", delimiter: " ")
+      |
+      span.glyphicon.glyphicon-rub
+    button.btn.btn-primary.btn-lg Add to cart

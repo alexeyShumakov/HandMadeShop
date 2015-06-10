@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  paginates_per 3
   belongs_to :category
   has_many :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images, :allow_destroy => true
