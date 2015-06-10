@@ -1,0 +1,49 @@
+.section.submit-section
+  .container
+    .row
+      .text-center
+        h4 Подписка
+        form.form-inline
+          .form-group
+            label.sr-only for='subs-email'
+            input.form-control#subs-email type='email' placeholder='Enter email'
+            button.btn.btn-default type='submit' Submit
+
+footer.footer.text-center
+  .container
+    ul.list-inline
+      li
+        =link_to root_path
+          =image_tag('facebook.png')
+      li
+        =link_to root_path
+          =image_tag('twitter.png')
+      li
+        =link_to root_path
+          =image_tag('google.png')
+      li
+        =link_to root_path
+          =image_tag('vimeo.png')
+    p
+      |  Алисе наскучило  сидеть  с  сестрой  без  дела  на  берегу  реки;
+    p
+      |  разок-другой она заглянула в книжку, которую читала сестра, но там  не  было
+      |  ни картинок, ни разговоров.
+    p
+      |       - Что толку в книжке, - подумала Алиса, - если в ней нет  ни  картинок,
+      |  ни разговоров?
+    ul.list-inline
+      li
+        a О нас
+      li
+        | -
+      li
+        a Как оформить заказ
+      li
+        | -
+      li
+        a Помощь
+      li
+        | -
+      li
+        a Доставка

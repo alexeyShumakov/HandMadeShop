@@ -1,3 +1,25 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+}
+.breadcrumb {
+  background: none;
+}
+.information {
+  .btn {
+
+  }
+  h1 {
+    margin: 0;
+    color: #f0b73b;
+  }
+  .price {
+    display: inline-block;
+    margin: 0 15px 10px 0;
+    font-size: 1.75em;
+    font-weight: 900;
+    color: #f0b73b;
+  }
+}

@@ -1,11 +1,25 @@
 == render 'carousel'
 
-h1 Listing categories
-
-.row
-  - @categories.each do |category|
-    .col-sm-6.col-md-4
-      .thumbnail.thumb-category
-        =link_to category
-          =image_tag(category.image.url, alt: category.title)
-        h3.text-center = category.title
+.container
+  h1 Listing categories
+  .row
+    - @categories.each do |category|
+      .col-sm-6.col-md-4
+        .thumbnail.thumb-category
+          =link_to category
+            =image_tag(category.image.url, alt: category.title)
+          h3.text-center = category.title
+  h2 Newest products
+  .row
+    - @products.each do |product|
+      .col-sm-3.col-md-3
+        .thumbnail.thumb-product
+          =link_to product
+            =image_tag(product.product_images[0].image.url(:thumb), alt: product.title)
+          h3.text-center = product.title
+          .text-center
+            h3.price.bold
+              = product.price
+              |
+              span.glyphicon.glyphicon-rub
+            button.btn.btn-primary.btn-lg Add to cart

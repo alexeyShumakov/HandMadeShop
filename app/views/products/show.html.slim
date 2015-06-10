@@ -1,17 +1,53 @@
-p#notice = notice
-
-p
-  strong Title:
-  = @product.title
-p
-  strong Color:
-  = @product.color
-p
-  strong Description:
-  = @product.description
-p
-  strong Category:
-  = @product.category
-p
-  strong Price:
-  = @product.price
+.container
+  ol.breadcrumb
+    li
+      =link_to 'Home', root_path
+    li
+      =link_to @product.category.title, @product.category
+    li.active = @product.title
+  .row
+    p#notice = notice
+    .col-sm-6.col-md-6
+      .carousel.slide#product-carousel data-ride='carousel' data-interval='false'
+        ol.carousel-indicators
+          -@product.product_images.each do |carousel_item|
+            - if @product.product_images.index(carousel_item) == 0
+              li.active data-target="#carousel" data-slide-to=@product.product_images.index(carousel_item)
+            - else
+              li data-target="#carousel" data-slide-to=@product.product_images.index(carousel_item)
+        .carousel-inner role='listbox'
+          -@product.product_images.each do |carousel_item|
+            - if @product.product_images.index(carousel_item) == 0
+              .item.active
+                img src=carousel_item.image.url(:medium) alt=carousel_item.title
+            - else
+              .item
+                img src=carousel_item.image.url(:medium) alt=carousel_item.title
+        a.left.carousel-control href='#product-carousel' data-slide='prev'
+          span.glyphicon.glyphicon-chevron-left aria-hidden='true'
+        a.right.carousel-control href='#product-carousel' data-slide='next'
+          span.glyphicon.glyphicon-chevron-right aria-hidden='true'
+    .col-sm-6.col-md-6.information
+      h1
+        = @product.title
+      p
+        strong Цвет:
+        = @product.color
+      p
+        strong Описание:
+      p
+        = @product.description
+      .well
+        .price
+          = @product.price
+          |
+          span.glyphicon.glyphicon-ruble
+        .btn.btn-primary.btn-lg.pull-right Add to Cart
+        .clearfix
+  .row
+    .col-md-8
+      h3 Дополнительное описание
+      dl.dl-horizontal
+        -@product.additional_descriptions.each do |ad|
+          dt = ad.title
+          dd = ad.description
