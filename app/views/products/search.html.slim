@@ -1,0 +1,25 @@
+.container
+  ol.breadcrumb
+    li
+      =link_to 'Home', root_path
+    li.active
+      | search:
+      = @keyword
+  .row
+    p#notice = notice
+    h1.text-center
+      | Результат поиска по:
+      = @keyword
+    .col-lg-3.col-md-3.col-sm-3
+      .list-group
+        -@categories.each do |category|
+          = link_to(category.title, category, class: 'list-group-item' )
+    .col-lg-9.col-md-9.col-sm-9
+      -if @products.present?
+        -@products.each do |product|
+          .col-sm-4.col-md-4
+            == render 'categories/thumb_products', product: product
+      - else
+        p Ничего не найдено.
+      .col-lg-12.col-md-12.col-sm-12.text-center
+        = paginate @products
