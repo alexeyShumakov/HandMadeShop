@@ -21,8 +21,7 @@ $ ->
   $('input').blur ->
     $(this).closest('form').submit()
 
-$('#cart-modal').on 'hide.bs.modal', ->
-  $.ajax('/line_items', dataType: 'script')
-  $('#cart-modal').unbind()
-  console.log('fire')
+#$('#cart-modal').on 'hide.bs.modal', ->
+#  $.ajax(url: '<%= line_items_path %>', dataType: 'script')
+#  $('#cart-modal').unbind()
 
