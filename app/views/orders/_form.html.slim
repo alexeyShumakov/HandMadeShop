@@ -1,0 +1,13 @@
+= simple_form_for(@order) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :city
+    = f.input :address
+    = f.input :phone
+    = f.input :product_price
+    = f.input :delivery_price
+    = f.input :status
+
+  .form-actions
+    = f.button :submit
