@@ -1,0 +1,12 @@
+.modal#cart-modal tabindex='-1' role='dialog' labelledby='modal-label' aria-hidden='true'
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        button.close data-dismiss='modal' aria-label="Close"
+          span aria-hidden='true' &times;
+        h4.modal-title#modal-label Ваша корзина
+        .modal-body
+          p Вы только что добавили товар в Корзину, что будем делать дальше?
+        .modal-footer
+          button.btn.btn-default data-dismiss="modal" Продолжить покупки
+          = link_to 'Оформить заказ', root_path, class: 'btn btn-primary'

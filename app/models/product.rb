@@ -9,4 +9,17 @@ class Product < ActiveRecord::Base
 
   has_many :additional_descriptions, dependent: :destroy
   accepts_nested_attributes_for :additional_descriptions, :allow_destroy => true
+
+  has_many :line_items
+  before_destroy :line_item_ref
+
+  private
+    def line_item_ref
+      if line_items.empty?
+        return true
+      else
+        errors.add(:base, 'error')
+        return false
+      end
+    end
 end
