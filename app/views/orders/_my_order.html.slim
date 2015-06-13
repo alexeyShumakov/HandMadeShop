@@ -1,0 +1,32 @@
+h4
+  | Ваш заказ
+  = link_to line_items_path,  'remote': true,
+  'role': 'button',
+          'data-toggle': 'modal',
+          'data-target': '#cart-modal'
+    span.glyphicon.glyphicon-pencil
+.table-responsive
+  table.table.table-condensed
+    thead
+      tr
+        th #
+        th Название
+        th Цвет
+        th Кол-во
+        th Цена
+    tbody
+      -cart.line_items.each do |line_item|
+        tr id=('order_line_item_' + line_item.id.to_s)
+          td.col-md-3.col-sm-3
+            =image_tag(line_item.product.product_images[0].image.url(:small), class: 'thumb-image',  alt: line_item.product.title)
+          td.col-md-3.col-sm-3
+            =link_to(line_item.product.title, line_item.product)
+          td.col-md-3.col-sm-3 = line_item.product.color
+          td.col-md-3.col-sm-3
+            = line_item.quantity
+          td.total-price.col-md-3.col-sm3 = custom_currency(line_item.total_price)
+h3.cart-total-price.pull-right
+  | Итого:
+  i.bold = custom_currency(@cart.total_price)
+  .glyphicon.glyphicon-rub
+.clearfix

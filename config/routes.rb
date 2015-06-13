@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :orders, only: [:new, :create]
+  get 'order_rerender_cart', to: 'orders#cart_rerender', as: :order_rerender_cart
   resources :line_items, only: [:create, :destroy, :update, :index]
   resources :products, only: [:show]
   resources :categories, only: [:index, :show]

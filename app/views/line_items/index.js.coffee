@@ -17,7 +17,11 @@ $ ->
     else
       quantity_node.val(count - 1)
 
-  $('input').blur ->
+  $('#qty_form').blur ->
     $(this).closest('form').submit()
+
+$('#cart-modal').on 'hide.bs.modal', ->
+  $.ajax(url: '<%= order_rerender_cart_path %>', dataType: 'script')
+  $('#cart-modal').unbind()
 
 

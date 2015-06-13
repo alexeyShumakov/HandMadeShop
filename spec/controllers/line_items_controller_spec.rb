@@ -23,7 +23,6 @@ RSpec.describe LineItemsController, type: :controller do
     it 'create new line_item' do
       xhr :post, :create, {product_id: product.id}, {cart_id: nil}
       expect(assigns(:line_item)).to be_a(LineItem)
-      expect(assigns(:line_item)).to be_a_new_record
 		end
 
   end
