@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
 	has_many :line_items, dependent: :destroy
+	validates :name, :address, :city, :phone, presence: true
+	validates :delivery_price, :product_price, :status, numericality: true, allow_blank: true
 	after_create :set_product_price
 	def add_item_from_cart(cart)
 		cart.line_items.each do |line_item|

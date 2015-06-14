@@ -20,7 +20,11 @@ class OrdersController < InheritedResources::Base
   end
 
   def cart_rerender
-    respond_to :js
+    if @cart.total_quantity == 0
+      render :js => "window.location = '#{root_path}'"
+    else
+      respond_to :js
+    end
   end
 
   private

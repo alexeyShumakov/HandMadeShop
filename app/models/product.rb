@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
   include PgSearch
+  validates :title, :description, :color, :price, presence: true
+  validates :price, numericality: true
   pg_search_scope :search_by_title, against: :title,
                   using: {tsearch: {prefix: true}}
   paginates_per 3

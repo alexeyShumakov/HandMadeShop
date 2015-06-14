@@ -1,5 +1,4 @@
 class LineItemsController < InheritedResources::Base
-
   before_action :set_line_item, only: [:destroy, :update]
   def index
     respond_to :js
@@ -24,7 +23,9 @@ class LineItemsController < InheritedResources::Base
         if @line_item.update(line_item_params)
           format.js
         else
-          format.js {render nothing: true}
+          @line_item.quantity = 1
+          @line_item.save
+          format.js
         end
       end
     else
