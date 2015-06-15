@@ -18,7 +18,7 @@ $ ->
     else
       quantity_node.val(count - 1)
 
-  $('input').blur ->
+  $('#qty_form').blur ->
     $(this).closest('form').submit()
 
 
