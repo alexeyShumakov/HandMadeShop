@@ -44,6 +44,7 @@ group :development do
   gem 'rb-inotify', require: false
   gem 'spring-commands-rspec'
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
