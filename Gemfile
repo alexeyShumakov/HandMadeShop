@@ -15,14 +15,14 @@ gem 'pg_search'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'kaminari'
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'draper'
 gem 'pundit'
 
-gem 'therubyracer', :platform=>:ruby
+gem 'therubyracer', platform: :ruby
 group :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -36,12 +36,12 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-  gem 'hub', :require=>nil
+  gem 'hub', require: nil
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'rb-fchange', :require=>false
-  gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
+  gem 'rb-fchange', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-inotify', require: false
   gem 'spring-commands-rspec'
 end
 group :development, :test do
